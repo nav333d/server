@@ -43,6 +43,7 @@ export const loginUser = async (req,res) =>{
 
       
       const user = await User.findOne({email})
+      console.log(user._id)
       if(!user){
           return res.status(200).json({error : true , message : 'Email or password is not correct'})
       }
@@ -52,7 +53,7 @@ export const loginUser = async (req,res) =>{
           return res.status(200).json({error : true , message : 'Email or password is not correct'})
       }
       try{
-        return res.status(200).json({error: false , message : 'yahoooo !! loged in'})
+        return res.status(200).json({error: false , message : 'yahoooo !! loged in', msg : 'another',userId : await user._id })
       }
       catch(e){
           return res.status(200).json({error : true , mesage : 'something went wrong'})
