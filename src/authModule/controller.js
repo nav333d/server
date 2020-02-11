@@ -43,6 +43,7 @@ export const loginUser = async (req,res) =>{
 
       
       const user = await User.findOne({email})
+      console.log(user)
       console.log(user._id)
       if(!user){
           return res.status(200).json({error : true , message : 'Email or password is not correct'})

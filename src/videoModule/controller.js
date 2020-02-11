@@ -5,7 +5,7 @@ export const uploadVideo = async(req,res,next) =>{
    
     
     const {fieldname,originalname,mimetype,filename,size,location} = req.file;
-    console.log(filename)
+   console.log("hit upload video")
     
   
     if(filename === '' || location === ''){
@@ -14,10 +14,11 @@ export const uploadVideo = async(req,res,next) =>{
 
     const userId = req.body.userID;
     const userName = req.body.username
-    console.log("hit")
+    console.log(userName)
    
    
     const userexists = await VideoCollection.findOne({userId})
+    console.log(userexists)
     if(userexists){
        var newVideo = {fieldname,originalname,mimetype,location,size};
         VideoCollection.findOneAndUpdate(
