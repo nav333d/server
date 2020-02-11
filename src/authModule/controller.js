@@ -53,7 +53,7 @@ export const loginUser = async (req,res) =>{
           return res.status(200).json({error : true , message : 'Email or password is not correct'})
       }
       try{
-        return res.status(200).json({error: false , message : 'yahoooo !! loged in', msg : 'another',userId : await user._id })
+        return res.status(200).json({error: false , message : 'yahoooo !! loged in', msg : 'another',userId : await user._id, userName : await user.userName })
       }
       catch(e){
           return res.status(200).json({error : true , mesage : 'something went wrong'})
